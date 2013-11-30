@@ -37,12 +37,18 @@ Contributing
 Contributions are very welcome, especially for making templates for lesser-known languages.
 We do not know all of the languages in existance, so we can not make templates for all of them.
 Some guidelines, which are below, must be followed in pull requests.
+They are primarily written for the owners of the repository, however.
 
-* Track the merge-pool branch or something branched from that, *not master*.
-* Commit to a feature branch.
+* Do not push directly to `master`; make branches and merge instead.
+  * An exception to this rule would be fixing merge conflicts after a merge.
+* Merge the created branch into `master` when the feature/bug-fix is thought to be done and **not before**.
+Do not merge after each commit.
+* After merging into `master`,
+  * consider making a new release.
+  * delete the branch if you do not think any new work will be done in it.
+    * If the branch is for a feature and the feature is done, delete it; a different branch can be used for bug fixes.
 
-Once done, submit a pull request, and it will be reviewed.
-
-If the instructions seem confusing, see the branching done in the past as we have built the program.
-It should be a good example.
-If still confused, email one of the authors and they will help explain.
+Following these guidelines, let's pretend there was a bug that you forked to fix.
+You would first make a new branch besides `master` to do your work.
+Then you would do your work, and submit a pull request from your work branch.
+We would then review and hopefully accept.
