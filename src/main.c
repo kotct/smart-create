@@ -42,14 +42,17 @@ int main(int argc, char *argv[])
 {
 	/* Create arguments and files to be made list. */
 	ml_argument_list_t arguments = ml_arglstgen(argc, argv);
-	ml_list_t *files_to_be_made = NULL;
 
-	/* Scan arguments, add arguments to files_to_be_made. */
-	for (int i = 1; i < argc; i++) {
-		char *argument_data = ml_arglstgnth(arguments, i)->data;
-		
-		if (argument_data[0] != '-')
-			files_to_be_made = ml_lnnew(files_to_be_made, argument_data);
+	/* Remove program name. */
+	arguments = ml_ldnth(arguments, 0);
+
+	/* Scan arguments for command-line arguments. */
+	/* ml_lsrch should be renamed to ml_arglsrch. */
+	if (ml_lgnn(ml_lsrch(arguments, "-a")) > 0) {
+		access_time = true;
+
+		for (size_t i = 0; i < ml_lgnn(ml_lsrch(arguments, "-a")); i++)
+			arguments = ml_ldnth(arguments, i);
 	}
 
 	/*
@@ -73,8 +76,8 @@ int main(int argc, char *argv[])
 	}
 
 	/* Create the files that must be made. */
-	for (size_t i = 0; i < ml_lgnn(files_to_be_made); i++) {
-		touch(ml_lngdat(ml_lgnth(files_to_be_made, i)));
+	for (size_t i = 0; i < ml_lgnn(arguments); i++) {
+		touch(ml_arglstgnth(arguments, i)->data);
 	}
 
 	return 0;
