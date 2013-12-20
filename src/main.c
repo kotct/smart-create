@@ -7,7 +7,14 @@
 
 #include "touch.h"
 
-#define VERSION "0.0.1"
+#define VERSION_NUMBER "0.0.1"
+#define VERSION_SENTENCE "Smart Create v"VERSION_NUMBER"\n"
+#define VERSION_PARAGRAPH	\
+	VERSION_SENTENCE \
+	"Copyright (C) 2013 Sam Craig, Kristofer Rye, Christopher Cooper\n" \
+	"License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>.\n" \
+	"This is free software: you are free to change and redistribute it.\n" \
+	"There is NO WARRANTY, to the extent permitted by law."
 
 /* Arguments */
 /* -a */
@@ -50,14 +57,17 @@ int main(int argc, char *argv[])
 	 * If so, exit before creating files.
 	 */
 	if (help || version) {
-		if (help)
+		if (help) {
+			printf("%s\n", VERSION_SENTENCE);
+			
 			printf("Help strings.\n");
+		}
 
 		if (help && version)
 			printf("\n");
 
 		if (version)
-			printf("%s\n", VERSION);
+			printf("%s\n", VERSION_PARAGRAPH);
 		
 		exit(0);
 	}
