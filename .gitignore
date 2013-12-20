@@ -1,6 +1,7 @@
 # Object files
 *.o
 *.ko
+*.s
 
 # Libraries
 *.lib
@@ -17,9 +18,16 @@
 *.out
 *.app
 
+# smc binaries
+smc
+smc.*
+
 # Temporary files
 *#
 *~
 .*
 !.gitignore
 !.gitkeep
+
+# Stuff we name to be hidden.
+*.hidden*
