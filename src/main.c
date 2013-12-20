@@ -44,6 +44,23 @@ int main(int argc, char *argv[])
 			files_to_be_made = ml_lnnew(files_to_be_made, argument_data);
 	}
 
+	/*
+	 * Check if help or version is true.
+	 * If so, exit before creating files.
+	 */
+	if (help || version) {
+		if (help)
+			printf("Help strings.\n");
+
+		if (help && version)
+			printf("\n");
+
+		if (version)
+			printf("0.0.1\n");
+		
+		exit(0);
+	}
+
 	/* Create the files that must be made. */
 	for (size_t i = 0; i < ml_lgnn(files_to_be_made); i++) {
 		touch(ml_lngdat(ml_lgnth(files_to_be_made, i)));
