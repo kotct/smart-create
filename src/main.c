@@ -5,7 +5,6 @@
 
 #include <multilib/arguments.h>
 
-#include "osdetect.h"
 #include "touch.h"
 
 #define VERSION "0.0.1"
@@ -58,7 +57,7 @@ int main(int argc, char *argv[])
 			printf("\n");
 
 		if (version)
-			printf("%s\n", VERSION)
+			printf("%s\n", VERSION);
 		
 		exit(0);
 	}
