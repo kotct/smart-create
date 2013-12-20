@@ -14,17 +14,17 @@ bool access_time = false;
 /* -c, --no-create */
 bool no_create = false;
 /* -d, --date= */
-char *date_string;
+char *date_string = NULL;
 /* -h, --no-dereference */
 bool no_dereference = false;
 /* -m */
 bool modification_time = false;
 /* -r, --reference= */
-char *reference;
+char *reference = NULL;
 /* -t */
-char *stamp;
+char *stamp = NULL;
 /* --time= */
-char *time;
+char *time = NULL;
 /* --help */
 bool help = false;
 /* --version */
