@@ -8,6 +8,8 @@
 #include "osdetect.h"
 #include "touch.h"
 
+#define VERSION "0.0.1"
+
 /* Arguments */
 /* -a */
 bool access_time = false;
@@ -56,7 +58,7 @@ int main(int argc, char *argv[])
 			printf("\n");
 
 		if (version)
-			printf("0.0.1\n");
+			printf("%s\n", VERSION)
 		
 		exit(0);
 	}
