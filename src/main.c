@@ -13,7 +13,22 @@
 bool access_time = false;
 /* -c, --no-create */
 bool no_create = false;
-
+/* -d, --date= */
+char *date_string;
+/* -h, --no-dereference */
+bool no_dereference = false;
+/* -m */
+bool modification_time = false;
+/* -r, --reference= */
+char *reference;
+/* -t */
+char *stamp;
+/* --time= */
+char *time;
+/* --help */
+bool help = false;
+/* --version */
+bool version = false;
 
 int main(int argc, char *argv[])
 {
