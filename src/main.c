@@ -5,6 +5,7 @@
 #include <multilib/arguments.h>
 
 #include "osdetect.h"
+#include "touch.h"
 
 int main(int argc, char *argv[])
 {
