@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 
+#include <multilib/arguments.h>
+
 #include "osdetect.h"
 
 int main(int argc, char *argv[])
