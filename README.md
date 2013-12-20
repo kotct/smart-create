@@ -35,7 +35,7 @@ Contributing
 ------------
 
 Contributions are very welcome, especially for making templates for lesser-known languages.
-We do not know all of the languages in existance, so we can not make templates for all of them.
+We do not know all of the languages in existence, so we can not make templates for all of them.
 Some guidelines, which are below, must be followed in pull requests.
 They are primarily written for the owners of the repository, however.
 
