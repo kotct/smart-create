@@ -32,10 +32,19 @@ bool version = false;
 
 int main(int argc, char *argv[])
 {
+	/* Create arguments and files to be made list. */
 	ml_argument_list_t arguments = ml_arglstgen(argc, argv);
-
+	ml_list_t *files_to_be_made = NULL;
+	
 	for (int i = 1; i < argc; i++) {
-		touch(ml_argument_list_get_nth(arguments, i)->data);
+		char *argument_data = ml_arglstgnth(arguments, i)->data;
+		
+		if (argument_data[0] != '-')
+			files_to_be_made = ml_lnnew(files_to_be_made, argument_data);
+	}
+
+	for (size_t i = 0; i < ml_lgnn(files_to_be_made); i++) {
+		touch(ml_lngdat(ml_lgnth(files_to_be_made, i)));
 	}
 
 	return 0;
