@@ -2,6 +2,7 @@ PROJECT_NAME=smart-create
 PROJECT_SHORT_BINARY_NAME=smc
 
 CXX=gcc
+MAKE=make
 
 MULTILIB_LOCATION=./lib/multilib
 MULTILIB_LIBRARY_FILE=$(MULTILIB_LOCATION)/multilib.so
@@ -22,6 +23,7 @@ PROGRAM_FILE=$(PROJECT_SHORT_BINARY_NAME)
 
 all: $(PROGRAM_FILE)
 
-include ./build/modules.mk
-include ./build/smc.mk
 include ./build/clean.mk
+include ./build/modules.mk
+include ./build/multilib.mk
+include ./build/smc.mk
