@@ -1,11 +1,19 @@
 #include "main.h"
 
+#include <stdbool.h>
 #include <stdio.h>
 
 #include <multilib/arguments.h>
 
 #include "osdetect.h"
 #include "touch.h"
+
+/* Arguments */
+/* -a */
+bool access_time = false;
+/* -c, --no-create */
+bool no_create = false;
+
 
 int main(int argc, char *argv[])
 {
