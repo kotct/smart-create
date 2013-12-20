@@ -1,9 +1,9 @@
+#include "io.h"
+
 #include <fcntl.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <sys/stat.h>
-
-#include "io.h"
 
 fd_t io_file_open(char *filename, int flags)
 {

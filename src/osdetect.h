@@ -10,6 +10,18 @@
  * OS_INT - integer assigned to various OSes, good for logic.
  * OS_STRING - string assigned to various OSes, good for users to read.
  * PATH_SEP - string used to separate directories in paths.
+ *
+ * OS integer values
+ * WINDOWS_INT
+ * LINUX_INT
+ * MAC_INT
+ * UNDEF_INT
+ *
+ * OS string values
+ * WINDOWS_STRING
+ * MAC_OS_STRING
+ * LINUX_STRING
+ * UNDEF_STRING
  */
 
 /* The integers associated with various OSes. */
