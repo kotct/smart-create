@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	ml_argument_list_t arguments = ml_arglstgen(argc, argv);
 
 	for (int i = 1; i < argc; i++) {
-		touch(ml_argument_list_get_nth(arguments, i)->data);
+		touch(ml_argument_list_get_nth(arguments, i)->data, T_NO_CREATE);
 	}
 
 	return 0;
