@@ -1,5 +1,5 @@
 asm/%.s:
-	$(CXX) -S -c -o $@ $< $(ASSEMBLY_FLAGS)
+	$(CXX) -S -c -o $@ $< $(COMPILE_FLAGS)
 
 obj/%.o: asm/%.s
 	$(CXX) -c -o $@ $< $(COMPILE_FLAGS)
