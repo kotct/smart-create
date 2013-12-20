@@ -1,0 +1,3 @@
+[submodule "lib/multilib"]
+	path = lib/multilib
+	url = git://github.com/multilib/multilib.git
