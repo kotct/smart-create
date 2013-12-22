@@ -93,8 +93,10 @@ int main(int argc, char *argv[])
 		case TIME_OPTION:
 			break;
 		case HELP_OPTION:
+			help = true;
 			break;
 		case VERSION_OPTION:
+			version = true;
 			break;
 		default:
 			break;
