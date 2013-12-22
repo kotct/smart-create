@@ -1,5 +1,7 @@
 #include "main.h"
 
+#include <getopt.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -38,21 +40,65 @@ bool help = false;
 /* --version */
 bool version = false;
 
+/*
+ * Enums of long options that do not have short options.
+ * In order to avoid having a short option, a non-character must be provided.
+ */
+enum {
+	TIME_OPTION = CHAR_MAX + 1,
+	HELP_OPTION,
+	VERSION_OPTION
+};
+
+/* Valid arguments for '--time' option. */
+const char *time_args[] =
+{
+	"atime", "access", "use", "mtime", "modify", NULL
+};
+
+/* Argument data. */
+const struct option longopts[] =
+{
+	{"time", required_argument, NULL, TIME_OPTION},
+	{"no-create", no_argument, NULL, 'c'},
+	{"date", required_argument, NULL, 'd'},
+	{"reference", required_argument, NULL, 'r'},
+	{"no-dereference", no_argument, NULL, 'h'},
+	{"help", no_argument, NULL, HELP_OPTION},
+	{"version", no_argument, NULL, VERSION_OPTION},
+	{NULL, 0, NULL, 0}
+};
+
 int main(int argc, char *argv[])
 {
-	/* Create arguments and files to be made list. */
-	ml_argument_list_t arguments = ml_arglstgen(argc, argv);
-
-	/* Remove program name. */
-	arguments = ml_ldnth(arguments, 0);
-
-	/* Scan arguments for command-line arguments. */
-	/* ml_lsrch should be renamed to ml_arglsrch. */
-	if (ml_lgnn(ml_lsrch(arguments, "-a")) > 0) {
-		access_time = true;
-
-		for (size_t i = 0; i < ml_lgnn(ml_lsrch(arguments, "-a")); i++)
-			arguments = ml_ldnth(arguments, i);
+	int c;
+	while ((c = getopt_long(argc, argv, "acd:fhmr:t:", longopts, NULL)) != -1) {
+		switch (c) {
+		case 'a':
+			break;
+		case 'c':
+			break;
+		case 'd':
+			break;
+		case 'f':
+			break;
+		case 'h':
+			break;
+		case 'm':
+			break;
+		case 'r':
+			break;
+		case 't':
+			break;
+		case TIME_OPTION:
+			break;
+		case HELP_OPTION:
+			break;
+		case VERSION_OPTION:
+			break;
+		default:
+			break;
+		}
 	}
 
 	/*
@@ -76,8 +122,8 @@ int main(int argc, char *argv[])
 	}
 
 	/* Create the files that must be made. */
-	for (size_t i = 0; i < ml_lgnn(arguments); i++) {
-		touch(ml_arglstgnth(arguments, i)->data);
+	for (int index = optind; index < argc; index++) {
+		touch(argv[index]);
 	}
 
 	return 0;
