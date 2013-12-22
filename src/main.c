@@ -72,25 +72,35 @@ const struct option longopts[] =
 int main(int argc, char *argv[])
 {
 	int c;
-	while ((c = getopt_long(argc, argv, "acd:fhmr:t:", longopts, NULL)) != -1) {
+	while ((c = getopt_long(argc, argv, "acd:hmr:t:", longopts, NULL)) != -1) {
 		switch (c) {
 		case 'a':
+			/* Look into doing or_eq stuff touch does. */
+			access_time = true;
 			break;
 		case 'c':
+			no_create = true;
 			break;
 		case 'd':
-			break;
-		case 'f':
+			date_string = optarg;
 			break;
 		case 'h':
+			no_dereference = true;
 			break;
 		case 'm':
+			/* Look into doing or_eq stuff touch does. */
+			modification_time = true;
 			break;
 		case 'r':
+			reference = optarg;
 			break;
 		case 't':
+			/* Look into doing what touch does. */
+			stamp = optarg;
 			break;
 		case TIME_OPTION:
+			/* Look into doing or_eq stuff touch does. */
+			time = optarg;
 			break;
 		case HELP_OPTION:
 			help = true;
